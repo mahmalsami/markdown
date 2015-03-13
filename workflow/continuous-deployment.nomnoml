@@ -1,0 +1,20 @@
+
+[<start>st]->[On new branch branch-name]
+[<start>st]->[On branch update]
+
+[On new branch branch-name]->[Jenkins Trigger|Handled with Jenkins CI]
+[On branch update]->[Jenkins Trigger]
+
+[Jenkins Trigger]->[J. create gh-pages-branch-name from gh-pages|Shell script->Push --hard]
+[J. create gh-pages-branch-name from gh-pages|Shell script->Push --hard]->[J. generate  branch-name url]
+[J. generate  branch-name url]->[J. build branch branch-name|Gulp/Grunt remote build]
+
+
+
+[J. build branch branch-name]->[J. push build result to gh-pages-branch-name|Shell script to push builded folder to branch]
+
+
+[J. push build result to gh-pages-branch-name|Shell script to push builded folder to branch]->[<end>e]
+
+[<end>e]->[<start>st]
+
